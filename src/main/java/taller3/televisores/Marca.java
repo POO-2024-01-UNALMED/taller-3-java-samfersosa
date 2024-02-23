@@ -9,11 +9,11 @@ private String nombre;
 		}
 	public String marcaGet() 
 		{
-		nombre.get();
+		return nombre;
 		}
-	public String marcaSet()
+	public void marcaSet(String nombre)
 		{
-		nombre.set();
+		this.nombre = nombre;
 		}
 
 	
