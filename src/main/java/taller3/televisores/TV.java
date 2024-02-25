@@ -12,32 +12,36 @@ public class TV {
     public TV(Marca marca, boolean estado) {
         this.marca = marca;
         this.estado = estado;
-        canal = 1;
-        volumen = 1;
-        precio = 500;
+        this.canal = 1;
+        this.volumen = 1;
+        this.precio = 500;
         numTV++;
     }
 
-    // Getters y setters para los atributos de TV
+    public Marca getMarca() {
+        return marca;
+    }
 
-    public void setCanal(int canal) {
-        if (canal >= 1 && canal <= 120) {
-            this.canal = canal;
-        }
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public int getCanal() {
         return canal;
     }
 
-    public void setVolumen(int volumen) {
-        if (volumen >= 0 && volumen <= 7) {
-            this.volumen = volumen;
+    public void setCanal(int canal) {
+        if (estado && canal >= 1 && canal <= 120) {
+            this.canal = canal;
         }
     }
 
-    public int getVolumen() {
-        return volumen;
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public boolean getEstado() {
@@ -52,12 +56,22 @@ public class TV {
         estado = false;
     }
 
-    public void setControl(Control control) {
-        this.control = control;
+    public int getVolumen() {
+        return volumen;
+    }
+
+    public void setVolumen(int volumen) {
+        if (estado && volumen >= 0 && volumen <= 7) {
+            this.volumen = volumen;
+        }
     }
 
     public Control getControl() {
         return control;
+    }
+
+    public void setControl(Control control) {
+        this.control = control;
     }
 
     public static int getNumTV() {
@@ -66,5 +80,29 @@ public class TV {
 
     public static void setNumTV(int numTV) {
         TV.numTV = numTV;
+    }
+
+    public void canalUp() {
+        if (estado && canal < 120) {
+            canal++;
+        }
+    }
+
+    public void canalDown() {
+        if (estado && canal > 1) {
+            canal--;
+        }
+    }
+
+    public void volumenUp() {
+        if (estado && volumen < 7) {
+            volumen++;
+        }
+    }
+
+    public void volumenDown() {
+        if (estado && volumen > 0) {
+            volumen--;
+        }
     }
 }
